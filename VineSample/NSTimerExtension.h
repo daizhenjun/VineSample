@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSTimerExtension : NSObject
+@interface NSTimer (Pausing)
 
-@end
+- (NSMutableDictionary *)pauseDictionary;
+- (void)pause;
+- (void)resume;
+
+@end  

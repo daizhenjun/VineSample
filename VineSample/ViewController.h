@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+@property (retain, nonatomic) IBOutlet UIButton*  vineListButton;
+@property (retain, nonatomic) IBOutlet UIButton*  vineVideoButton;
+- (IBAction)vineListClick:(id) sender;
+- (IBAction)vineVideoClick:(id) sender;
 @end

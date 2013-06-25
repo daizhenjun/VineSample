@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "VideoTableViewController.h"
+#import "AVCamViewController.h"
 @interface ViewController ()
 
 @end
@@ -24,6 +25,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)vineListClick:(id) sender{
+    VideoTableViewController* controller = [[VideoTableViewController alloc] init];
+    //    [self.navigationController pushViewController:controller animated:YES];
+    //    self.navigationItem.backBarButtonItem = [self backButton];
+    //[self.view addSubview:controller.view];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+- (void)vineVideoClick:(id) sender;{
+    AVCamViewController* controller = [[AVCamViewController alloc] init];
+    //    [self.navigationController pushViewController:controller animated:YES];
+    //    self.navigationItem.backBarButtonItem = [self backButton];
+    //[self.view addSubview:controller.view];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
