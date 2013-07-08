@@ -10,7 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface VideoTableViewCell : UITableViewCell{
-    NSString* videoUrl;
+    NSString* videoUrlStr;
     UIImageView *iv;
 }
 

@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "129"
-         endingLineNumber = "129"
+         startingLineNumber = "139"
+         endingLineNumber = "139"
          landmarkName = "-setVideoUrl:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
+         startingLineNumber = "140"
+         endingLineNumber = "140"
          landmarkName = "-setVideoUrl:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "173"
-         endingLineNumber = "173"
+         startingLineNumber = "183"
+         endingLineNumber = "183"
          landmarkName = "-awakeFromNib"
          landmarkType = "5">
       </FileBreakpoint>
@@ -190,11 +190,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
+         startingLineNumber = "140"
+         endingLineNumber = "140"
          landmarkName = "-setVideoUrl:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -203,11 +203,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "163"
-         endingLineNumber = "163"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "-handleSingleTap:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "157"
-         endingLineNumber = "157"
+         startingLineNumber = "167"
+         endingLineNumber = "167"
          landmarkName = "-handleSingleTap:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,11 +229,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
+         startingLineNumber = "130"
+         endingLineNumber = "130"
          landmarkName = "-moviePlayBackDidFinish:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -580,11 +580,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486300.902351"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
          landmarkName = "-startDownLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -593,11 +593,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "147"
-         endingLineNumber = "147"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
          landmarkName = "-preparePlay"
          landmarkType = "5">
       </FileBreakpoint>
@@ -606,11 +606,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
          landmarkName = "-startDownLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -697,11 +697,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-startDownLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -710,11 +710,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "VineSample/VideoTableViewCell.m"
-         timestampString = "393486575.529522"
+         timestampString = "394944851.391815"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "85"
-         endingLineNumber = "85"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
          landmarkName = "-startDownLoad"
          landmarkType = "5">
       </FileBreakpoint>

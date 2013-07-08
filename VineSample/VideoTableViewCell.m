@@ -27,7 +27,7 @@ static UIImage *cacheImage = nil;
         self.videoPlayer = nil;
     }
     
-    videoUrl = nil;
+    videoUrlStr = nil;
     iv = nil;
     self.isPlaying = NO;
    // [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -49,7 +49,7 @@ static UIImage *cacheImage = nil;
 -(UIImage *)getImage
 {
     NSDictionary *opts = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
-    NSURL *url = [[NSURL alloc] initFileURLWithPath:videoUrl];
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:videoUrlStr];
     AVURLAsset *urlAsset = [AVURLAsset URLAssetWithURL:url options:opts];
     AVAssetImageGenerator *generator = [AVAssetImageGenerator assetImageGeneratorWithAsset:urlAsset];
     generator.appliesPreferredTrackTransform = YES;
@@ -59,9 +59,17 @@ static UIImage *cacheImage = nil;
     return [UIImage imageWithCGImage: img];
 }
 
+static UIImage* thumbnail = nil;
+
 -(void) startDownLoad{
     @try {
-        self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:videoUrl]];
+        NSURL *video_Url = [NSURL URLWithString:videoUrlStr];
+        if ([video_Url checkResourceIsReachableAndReturnError:nil] == NO)
+        {
+            NSLog(@"Video doesn't not exist.");
+            return;
+        }
+        self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:video_Url];
         self.videoPlayer.controlStyle             = MPMovieControlStyleNone;////MPMovieControlStyleDefault;//
         self.videoPlayer.scalingMode              = MPMovieScalingModeFill;//MPMovieScalingModeAspectFit;
         self.videoPlayer.shouldAutoplay           = NO;
@@ -80,9 +88,11 @@ static UIImage *cacheImage = nil;
         
         UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                           action:@selector(handleSingleTap:)];
-        UIImage*thumbnail = [self.videoPlayer thumbnailImageAtTime:0.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
         if(thumbnail == nil){
-            thumbnail = [UIImage imageNamed:@"play.png"];
+            thumbnail = [self.videoPlayer thumbnailImageAtTime:0.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
+            if(thumbnail == nil){
+                thumbnail = [UIImage imageNamed:@"play.png"];
+            }
         }
         iv =[[UIImageView alloc] initWithImage:thumbnail];
         iv.userInteractionEnabled = YES;
@@ -126,7 +136,7 @@ static UIImage *cacheImage = nil;
 }
 
 - (void) setVideoUrl:(NSString*)url{
-     videoUrl = url;
+     videoUrlStr = url;
 }
 
 -(void) play{
