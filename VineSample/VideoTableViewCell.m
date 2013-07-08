@@ -13,7 +13,6 @@
 @synthesize imgView = _imgView,siteNameLabel = _siteNameLabel,timeLabel = _timeLabel,desLabel = _desLabel, videoBtn = _videoBtn, isPlaying = _isPlaying;
 
 
-static UIImage *cacheImage = nil;
 - (void)dealloc
 {
     self.imgView = nil;
@@ -32,7 +31,6 @@ static UIImage *cacheImage = nil;
     self.isPlaying = NO;
    // [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSLog(@"VideoTableViewCell====dealloc");
-
     //[super dealloc];
 }
 
@@ -59,41 +57,45 @@ static UIImage *cacheImage = nil;
     return [UIImage imageWithCGImage: img];
 }
 
-static UIImage* thumbnail = nil;
 
 -(void) startDownLoad{
     @try {
         NSURL *video_Url = [NSURL URLWithString:videoUrlStr];
-        if ([video_Url checkResourceIsReachableAndReturnError:nil] == NO)
-        {
-            NSLog(@"Video doesn't not exist.");
-            return;
-        }
-        self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL:video_Url];
-        self.videoPlayer.controlStyle             = MPMovieControlStyleNone;////MPMovieControlStyleDefault;//
-        self.videoPlayer.scalingMode              = MPMovieScalingModeFill;//MPMovieScalingModeAspectFit;
-        self.videoPlayer.shouldAutoplay           = NO;
-        self.videoPlayer.view.autoresizingMask    = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.videoPlayer.view.autoresizesSubviews = YES;
-        self.videoPlayer.view.frame               = self.videoBtn.bounds;
-        //self.videoPlayer.view.backgroundColor = [UIColor blueColor];
-        self.videoPlayer.repeatMode               = MPMovieRepeatModeOne;
-        [self.videoPlayer playableDuration];
+        //if ([video_Url checkResourceIsReachableAndReturnError:nil] == NO)
+        //{
+        //    NSLog(@"Video doesn't not exist.");
+        //    return;
+        //}
+        //if(self.videoPlayer == nil){
+            self.videoPlayer = [[MPMoviePlayerController alloc] init];
+            self.videoPlayer.controlStyle             = MPMovieControlStyleNone;////MPMovieControlStyleDefault;//
+            self.videoPlayer.scalingMode              = MPMovieScalingModeFill;//MPMovieScalingModeAspectFit;
+            self.videoPlayer.shouldAutoplay           = NO;
+            self.videoPlayer.view.autoresizingMask    = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            self.videoPlayer.view.autoresizesSubviews = YES;
+            self.videoPlayer.view.frame               = self.videoBtn.bounds;
+            //self.videoPlayer.view.backgroundColor = [UIColor blueColor];
+            self.videoPlayer.repeatMode               = MPMovieRepeatModeOne;
+            [self.videoPlayer playableDuration];
+            NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+            [center addObserver:self
+                       selector:@selector(moviePlayBackDidFinish:)
+                           name:MPMoviePlayerPlaybackDidFinishNotification
+                         object:self.videoPlayer];
+
+        //}
+        [self.videoPlayer setContentURL:video_Url];
         [self.videoPlayer prepareToPlay];
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self
-                   selector:@selector(moviePlayBackDidFinish:)
-                       name:MPMoviePlayerPlaybackDidFinishNotification
-                     object:self.videoPlayer];
         
+                
         UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                           action:@selector(handleSingleTap:)];
-        if(thumbnail == nil){
-            thumbnail = [self.videoPlayer thumbnailImageAtTime:0.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
+        //if(thumbnail == nil){
+        UIImage * thumbnail = [self.videoPlayer thumbnailImageAtTime:0.0 timeOption:MPMovieTimeOptionNearestKeyFrame];
             if(thumbnail == nil){
                 thumbnail = [UIImage imageNamed:@"play.png"];
             }
-        }
+        //}
         iv =[[UIImageView alloc] initWithImage:thumbnail];
         iv.userInteractionEnabled = YES;
         iv.frame = self.videoPlayer.view.frame;
@@ -108,7 +110,8 @@ static UIImage* thumbnail = nil;
         [self.videoBtn addSubview:touchView];
         //if(isPlay && self.videoPlayer != nil && self.videoPlayer.loadState != MPMovieLoadStateUnknown){
             //[self.videoPlayer play];
-            [self performSelectorInBackground:@selector(play) withObject:self];
+            [self play];
+            //[self performSelectorInBackground:@selector(play) withObject:self];
         //}
     }
     @catch (NSException *exception) {
@@ -129,7 +132,7 @@ static UIImage* thumbnail = nil;
     
     MPMoviePlayerController * player = notification.object;
     [player stop];
-    player = nil;
+    //rplayer = nil;
     //[[NSNotificationCenter defaultCenter] removeObserver:self];
     self.isPlaying = NO;
     NSLog(@"======moviePlayBackDidFinish=========");
@@ -139,6 +142,7 @@ static UIImage* thumbnail = nil;
      videoUrlStr = url;
 }
 
+//仅在本类内部使用
 -(void) play{
     @try {
         iv.hidden = YES;

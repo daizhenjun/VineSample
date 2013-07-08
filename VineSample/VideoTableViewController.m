@@ -85,7 +85,7 @@
 //    [self performSelectorInBackground:@selector(play) withObject:self];
 //}
 
-- (void)scrollProess:(UIScrollView *)scrollView{
+- (void)scrollProcess:(UIScrollView *)scrollView{
     CGFloat currentOffset = scrollView.contentOffset.y + scrollView.bounds.size.height - scrollView.contentInset.bottom;
     NSLog(@"scroll position %f", currentOffset);
     
@@ -115,13 +115,13 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self scrollProess:scrollView];
+    [self scrollProcess:scrollView];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     if(!decelerate)
-        [self scrollProess:scrollView]; 
+        [self scrollProcess:scrollView]; 
 }
 
 
